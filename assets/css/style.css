@@ -1,0 +1,12 @@
+body {
+    background-image: url("../images/background.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+
+.jumbotron {
+    margin-top: 50px;
+    opacity: 0.85;
+}

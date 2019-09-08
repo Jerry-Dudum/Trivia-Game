@@ -98,3 +98,31 @@ var timer = 5;
 var timerID;
 var timeUpID;
 var questionIndex = 0;
+var chosen;
+
+function startGame() {
+    $("#description").addClass("d-none");
+    $("#question").removeClass("d-none");
+    $("#start").addClass("d-none");
+    $("#buttons").removeClass("d-none");
+    $("#timer").removeClass("d-none");
+    generateQuestion();
+}
+function counter() {
+    timer--;
+    $("#timer").text(timer);
+    if (timer === 0) {
+        clearInterval(timerID);
+    }
+}
+
+function generateQuestion() {
+    timer = 10;
+    $("#timer").text(timer);
+    timerID = setInterval(counter, 1000);
+
+}
+
+$("#start").on("click", function () {
+    startGame();
+})

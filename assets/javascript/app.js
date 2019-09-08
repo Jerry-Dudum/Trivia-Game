@@ -100,7 +100,30 @@ var timeUpID;
 var questionIndex = 0;
 var chosen;
 
+$("#start").on("click", function () {
+    startGame();
+});
+
+$(".option").on("click", function () {
+    chosen = this.value
+    clearTimeout(timeUpID);
+    clearInterval(timerID);
+    check();
+});
+
+$("#restart").on("click", function () {
+    timer = 10;
+    questionIndex = 0;
+    correct = 0;
+    unanswered = 0;
+    wrong = 0;
+
+    $("#results").addClass("d-none");
+    startGame();
+});
+
 function startGame() {
+    $("#restart").addClass("#d-none");
     $("#description").addClass("d-none");
     $("#question").removeClass("d-none");
     $("#start").addClass("d-none");
@@ -108,6 +131,15 @@ function startGame() {
     $("#timer").removeClass("d-none");
     generateQuestion();
 }
+
+function gameOver() {
+    $("#buttons").addClass("d-none");
+    $("#question").addClass("d-none");
+    $("#results").removeClass("d-none");
+    $("#results").text("Correct: " + correct + " Unanswered: " + unanswered + " Wrong: " + wrong);
+    $("#restart").removeClass("d-none");
+}
+
 function counter() {
     timer--;
     $("#timer").text(timer);
@@ -121,7 +153,10 @@ function generateQuestion() {
     $("#timer").text(timer);
     timerID = setInterval(counter, 1000);
     chosen = ""
-    timeUpID = setTimeout(check, 5000);
+    timeUpID = setTimeout(check, 10000);
+
+    $("#buttons").removeClass("d-none");
+    $("#results").addClass("d-none");
 
     $("#question").text(questions[questionIndex].question);
     $("#answer1").text(questions[questionIndex].answer1);
@@ -141,29 +176,26 @@ function check () {
     $("#buttons").addClass("d-none");
     $("#results").removeClass("d-none");
 
-    if (key === questions[questionIndex].correct) {
+    if (chosen === questions[questionIndex].correct) {
         correct++;
-        $("#result").text("CORRECT!");
+        $("#results").text("CORRECT!");
     }
-    else if (key === "") {
+    else if (chosen === "") {
         unanswered++;
-        $("#result").text("Time Up! Correct Answer: " + questions[questionIndex].correct);
+        $("#results").text("Time Up! Correct Answer: " + questions[questionIndex].correct);
     }
     else {
         wrong++;
-        $("#result").text("Wrong! Correct Answer: " + questions[questionIndex].correct);
+        $("#results").text("Wrong! Correct Answer: " + questions[questionIndex].correct);
     }
+
     questionIndex++;
+
+    if (questionIndex === questions.length) {
+        setTimeout(gameOver, 3000);
+    }
+    else {
+        setTimeout(generateQuestion, 3000);
+    }
 }
-
-$("#start").on("click", function () {
-    startGame();
-});
-
-$(".option").on("click", function(){
-    key = this.value
-    clearTimeout(timeUpID);
-    clearInterval(timerID);
-    check();
-})
 

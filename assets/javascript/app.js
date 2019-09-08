@@ -123,7 +123,7 @@ $("#restart").on("click", function () {
 });
 
 function startGame() {
-    $("#restart").addClass("#d-none");
+    $("#restart").addClass("d-none");
     $("#description").addClass("d-none");
     $("#question").removeClass("d-none");
     $("#start").addClass("d-none");
@@ -138,6 +138,7 @@ function gameOver() {
     $("#results").removeClass("d-none");
     $("#results").text("Correct: " + correct + " Unanswered: " + unanswered + " Wrong: " + wrong);
     $("#restart").removeClass("d-none");
+    $("#gif").addClass("d-none");
 }
 
 function counter() {
@@ -157,6 +158,7 @@ function generateQuestion() {
 
     $("#buttons").removeClass("d-none");
     $("#results").addClass("d-none");
+    $("#gif").addClass("d-none");
 
     $("#question").text(questions[questionIndex].question);
     $("#answer1").text(questions[questionIndex].answer1);
@@ -188,6 +190,9 @@ function check () {
         wrong++;
         $("#results").text("Wrong! Correct Answer: " + questions[questionIndex].correct);
     }
+
+    $("#gif").removeClass("d-none");
+    $("#gif").attr('src', "assets/images/question" + (questionIndex + 1) + ".gif")
 
     questionIndex++;
 

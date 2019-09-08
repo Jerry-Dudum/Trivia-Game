@@ -94,7 +94,7 @@ var questions = [
 var correct = 0;
 var wrong = 0;
 var unanswered = 0;
-var timer = 5;
+var timer = 10;
 var timerID;
 var timeUpID;
 var questionIndex = 0;
@@ -120,9 +120,50 @@ function generateQuestion() {
     timer = 10;
     $("#timer").text(timer);
     timerID = setInterval(counter, 1000);
+    chosen = ""
+    timeUpID = setTimeout(check, 5000);
 
+    $("#question").text(questions[questionIndex].question);
+    $("#answer1").text(questions[questionIndex].answer1);
+    $("#answer1").val(questions[questionIndex].answer1);
+    $("#answer2").text(questions[questionIndex].answer2);
+    $("#answer2").val(questions[questionIndex].answer2);
+    $("#answer3").text(questions[questionIndex].answer3);
+    $("#answer3").val(questions[questionIndex].answer3);
+    $("#answer4").text(questions[questionIndex].answer4);
+    $("#answer4").val(questions[questionIndex].answer4);
+}
+
+function check () {
+    clearTimeout(timeUpID);
+    clearInterval(timerID);
+
+    $("#buttons").addClass("d-none");
+    $("#results").removeClass("d-none");
+
+    if (key === questions[questionIndex].correct) {
+        correct++;
+        $("#result").text("CORRECT!");
+    }
+    else if (key === "") {
+        unanswered++;
+        $("#result").text("Time Up! Correct Answer: " + questions[questionIndex].correct);
+    }
+    else {
+        wrong++;
+        $("#result").text("Wrong! Correct Answer: " + questions[questionIndex].correct);
+    }
+    questionIndex++;
 }
 
 $("#start").on("click", function () {
     startGame();
+});
+
+$(".option").on("click", function(){
+    key = this.value
+    clearTimeout(timeUpID);
+    clearInterval(timerID);
+    check();
 })
+

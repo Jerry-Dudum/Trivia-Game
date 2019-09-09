@@ -6,7 +6,6 @@ var questions = [
         answer3: "Candy",
         answer4: "Gum",
         correct: "Rubber",
-        image: "FILL WITH IMAGE LATER"
     },
     question2 = {
         question: "How many swords does Zoro use?",
@@ -15,7 +14,6 @@ var questions = [
         answer3: "3",
         answer4: "4",
         correct: "3",
-        image: "FILL WITH IMAGE LATER"
     },
     question3 = {
         question: "What is Nami an expert in?",
@@ -24,7 +22,6 @@ var questions = [
         answer3: "Shooting",
         answer4: "Fighting",
         correct: "Navigation",
-        image: "FILL WITH IMAGE LATER"
     },
     question4 = {
         question: "What weapon does Usopp wield?",
@@ -33,7 +30,6 @@ var questions = [
         answer3: "He doesn't use weapons",
         answer4: "Slingshot",
         correct: "Slingshot",
-        image: "FILL WITH IMAGE LATER"
     },
     question5 = {
         question: "Sanji is the ____ for the Straw Hat Pirates.",
@@ -42,7 +38,6 @@ var questions = [
         answer3: "Chef",
         answer4: "Deckhand",
         correct: "Chef",
-        image: "FILL WITH IMAGE LATER"
     },
     question6 = {
         question: "Robin's devil fruit ability is called?",
@@ -51,7 +46,6 @@ var questions = [
         answer3: "Gomu Gomu no Mi",
         answer4: "Hito Hito no Mi",
         correct: "Hana Hana no Mi",
-        image: "FILL WITH IMAGE LATER"
     },
     question7 = {
         question: "What is so special about Franky?",
@@ -60,7 +54,6 @@ var questions = [
         answer3: "He's half tiger, half man",
         answer4: "He's a cyborg",
         correct: "He's a cyborg",
-        image: "FILL WITH IMAGE LATER"
     },
     question8 = {
         question: "Brook's devil fruit changed his appearance to?",
@@ -69,7 +62,6 @@ var questions = [
         answer3: "An old man",
         answer4: "A ghost",
         correct: "A skeleton",
-        image: "FILL WITH IMAGE LATER"
     },
     question9 = {
         question: "Chopper is a what?",
@@ -78,7 +70,6 @@ var questions = [
         answer3: "Reindeer",
         answer4: "Cat",
         correct: "Reindeer",
-        image: "FILL WITH IMAGE LATER"
     },
     question10 = {
         question: "Jinbei know's what special martial arts technique?",
@@ -87,7 +78,6 @@ var questions = [
         answer3: "Swan Technique",
         answer4: "Devil Trigger",
         correct: "Fishman Karate",
-        image: "FILL WITH IMAGE LATER"
     }
 ];
 
